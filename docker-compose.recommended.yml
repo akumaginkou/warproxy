@@ -3,6 +3,9 @@ services:
     image: ghcr.io/akumaginkou/warproxy:latest
     restart: always
     environment:
+      - PUID=1000
+      - PGID=100
+      - TZ=Asia/Tokyo
       - WARP_PLUS=true
       # - LICENSE_KEY=your-license-key-here
       - USERNAME=akumaginkou
