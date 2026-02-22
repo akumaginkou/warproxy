@@ -24,7 +24,7 @@ or `docker-compose`:
 ```yaml
 services:
   warproxy:
-    image: ghcr.io/kingcc/warproxy:latest
+    image: ghcr.io/akumaginkou/warproxy:latest
     restart: always
     ports:
       - 1080:1080
