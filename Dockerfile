@@ -1,5 +1,5 @@
 ARG ALPINE_VER=3.22
-ARG GOLANG_VER=1.22
+ARG GOLANG_VER=tip
 
 #--------------#
 
