@@ -44,8 +44,10 @@ services:
 | ```ENDPOINT```  | Cloudflareのエンドポイント | ```engage.cloudflareclient.com``` |
 | ```DNS```  | リモートDNSオプション  | ```1.1.1.1``` |
 | ```LICENSE_KEY```  | WARP+ライセンスキー  | なし |
-| ```WARP_PLUS```  | ```true```に設定するとWARP+自動更新スクリプトを有効化  | ```false``` |
+| ```WARP_PLUS```  | ```true```に設定するとWARP+自動更新スクリプトを有効化（不安定）  | ```false``` |
 | ```VERBOSE```  | 詳細ログを表示   | ```false```  |
+
+**注意:** `LICENSE_KEY`を使用する場合は、`WARP_PLUS=true`を設定しないでください。LICENSE_KEYは無制限のクォータを提供するため、WARP_PLUSは不要です。また、WARP_PLUS機能は不安定で、頻繁にAPIエラーが発生する可能性があります。
 
 ### WARP+ライセンスキーの使用方法
 既存のWARP+ライセンスキーをお持ちの場合、`LICENSE_KEY`環境変数で設定できます:

@@ -44,8 +44,10 @@ services:
 | ```ENDPOINT```  | endpoint of cloudflare | ```engage.cloudflareclient.com``` |
 | ```DNS```  | remote dns options  | ```1.1.1.1``` |
 | ```LICENSE_KEY```  | WARP+ license key  | None |
-| ```WARP_PLUS```  | set ```true``` to enable auto WARP+ quota script  | ```false``` |
+| ```WARP_PLUS```  | set ```true``` to enable auto WARP+ quota script (unstable)  | ```false``` |
 | ```VERBOSE```  | show verbose level logs   | ```false```  |
+
+**Note:** If you use `LICENSE_KEY`, you should NOT set `WARP_PLUS=true`. The LICENSE_KEY provides unlimited quota, making WARP_PLUS unnecessary. The WARP_PLUS feature is also unstable and may cause frequent API errors.
 
 ### Using WARP+ with your license key
 If you have an existing Warp+ license key, you can set it via the `LICENSE_KEY` environment variable:

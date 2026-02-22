@@ -3,8 +3,9 @@ services:
     image: ghcr.io/kingcc/warproxy:latest
     restart: always
     environment:
-      - WARP_PLUS=true
-      # - LICENSE_KEY=your-license-key-here
+      # Use either WARP_PLUS or LICENSE_KEY, not both
+      - WARP_PLUS=true     # Auto-refresh quota (unstable)
+      # - LICENSE_KEY=your-license-key-here  # Recommended if you have one
       - ENDPOINT=162.159.192.1
       - HTTP_PORT=1081
     networks:
