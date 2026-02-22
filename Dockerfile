@@ -12,16 +12,16 @@ RUN go install github.com/pufferffish/wireproxy/cmd/wireproxy@latest
 
 #--------------#
 
-FROM base AS wgcf-builder
+FROM golang:${GOLANG_VER}-alpine${ALPINE_VER} AS wgcf-builder
 
-RUN curl -fsSL https://git.io/wgcf.sh | bash
+RUN go install github.com/ViRb3/wgcf@latest
 
 #--------------#
 
 FROM base AS collector
 
 COPY --from=wireproxy-builder /go/bin/wireproxy /bar/usr/local/bin/wireproxy
-COPY --from=wgcf-builder /usr/local/bin/wgcf /bar/usr/local/bin/wgcf
+COPY --from=wgcf-builder /go/bin/wgcf /bar/usr/local/bin/wgcf
 
 COPY root/ /bar/
 
