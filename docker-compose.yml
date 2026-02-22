@@ -4,6 +4,7 @@ services:
     restart: always
     environment:
       - WARP_PLUS=true
+      # - LICENSE_KEY=your-license-key-here
       - ENDPOINT=162.159.192.1
       - HTTP_PORT=1081
     networks:

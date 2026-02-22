@@ -9,6 +9,15 @@ if [ "${WARP_ENABLED}" = "true" ]; then
     wgcf update --config /config/wgcf-account.toml
   fi
 
+  # Apply LICENSE_KEY if provided
+  if [ -n "$LICENSE_KEY" ]; then
+    echo "*** wgcf: applying license key..."
+    sed -i "s/^license_key = .*/license_key = '${LICENSE_KEY}'/" /config/wgcf-account.toml
+    # Force regeneration of profile configs
+    rm -f /config/wgcf-profile.conf
+    rm -f /config/wireproxy.conf
+  fi
+
   if [ ! -e "/config/wgcf-profile.conf" ]; then
     echo "*** wgcf: generating a new wireguard profile..."
     wgcf generate --config /config/wgcf-account.toml --profile /config/wgcf-profile.conf
@@ -31,7 +40,7 @@ if [ "${WARP_ENABLED}" = "true" ]; then
     if [ -n "$PASSWORD" ]; then
       echo -e "\nPassword = ${PASSWORD}" >> /config/wireproxy.conf
     fi
-    
+
     if [ -n "$HTTP_PORT" ]; then
       echo -e "\n[http]\nBindAddress = 0.0.0.0:${HTTP_PORT}" >> /config/wireproxy.conf
     fi

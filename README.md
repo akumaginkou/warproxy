@@ -1,6 +1,6 @@
 # WARProxy
 
-Use a single command to turn `Cloudflare WARP` into your SOCKS5/HTTP proxy server! 
+Use a single command to turn `Cloudflare WARP` into your SOCKS5/HTTP proxy server!
 The most minimal docker image includes all the features you might need!
 
 Includes:
@@ -43,12 +43,26 @@ services:
 | ```HTTP_PORT```  | to run http proxy in a different port  | None |
 | ```ENDPOINT```  | endpoint of cloudflare | ```engage.cloudflareclient.com``` |
 | ```DNS```  | remote dns options  | ```1.1.1.1``` |
+| ```LICENSE_KEY```  | WARP+ license key  | None |
 | ```WARP_PLUS```  | set ```true``` to enable auto WARP+ quota script  | ```false``` |
 | ```VERBOSE```  | show verbose level logs   | ```false```  |
 
-### To change license key
-If you have an existing Warp+ license key, edit `/config/wgcf-account.toml` and,  delete two files :  
-`/config/wgcf-profile.conf` and `/config/wireproxy.conf`  
+### Using WARP+ with your license key
+If you have an existing Warp+ license key, you can set it via the `LICENSE_KEY` environment variable:
+
+```yaml
+services:
+  warproxy:
+    image: ghcr.io/akumaginkou/warproxy:latest
+    restart: always
+    environment:
+      - LICENSE_KEY=your-license-key-here
+    ports:
+      - 1080:1080
+```
+
+Alternatively, you can manually edit `/config/wgcf-account.toml` and delete two files:
+`/config/wgcf-profile.conf` and `/config/wireproxy.conf`
 When you restart container, it will update your account info and re-generate conf files automatically.
 
 
