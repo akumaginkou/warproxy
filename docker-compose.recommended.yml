@@ -8,8 +8,8 @@ services:
       - TZ=Asia/Tokyo
       # - WARP_PLUS=true    # Don't use with LICENSE_KEY (unstable)
       - LICENSE_KEY=your-license-key-here
-      - USERNAME=akumaginkou
-      - PASSWORD=itikawaii939K
+      - USERNAME=
+      - PASSWORD=
       - DNS=8.8.8.8         # Google DNS (外部DNS設定)
     volumes:
       - /share/CACHEDEV1_DATA/Container/warproxy:/config
