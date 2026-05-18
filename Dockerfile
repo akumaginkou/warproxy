@@ -36,7 +36,7 @@ RUN chmod a+x \
 
 #--------------#
 
-FROM base As publisher
+FROM base AS publisher
 
 LABEL maintainer="akumaginkou"
 LABEL org.opencontainers.image.source=https://github.com/akumaginkou/warproxy
@@ -58,7 +58,7 @@ RUN \
 ENV \
     S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
     PYTHONUNBUFFERED=1 \
-    TZ=Asia/Shanghai \
+    TZ=UTC \
     WARP_ENABLED=true \
     WARP_PLUS=false \
     SOCKS5_PORT=1080
@@ -66,7 +66,7 @@ ENV \
 VOLUME /config
 WORKDIR /config
 
-HEALTHCHECK --interval=25s --timeout=5s --retries=1 \
+HEALTHCHECK --interval=25s --timeout=5s --retries=3 \
     CMD /usr/local/bin/healthcheck
 
 ENTRYPOINT ["/init"]
