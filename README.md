@@ -16,7 +16,7 @@ Includes:
 ```sh
 docker run --name warproxy \
   -p 1080:1080 \
-  -d ghcr.io/kingcc/warproxy:latest
+  -d ghcr.io/akumaginkou/warproxy_new:latest
 ```
 
 or `docker-compose`:
@@ -24,7 +24,7 @@ or `docker-compose`:
 ```yaml
 services:
   warproxy:
-    image: ghcr.io/kingcc/warproxy:latest
+    image: ghcr.io/akumaginkou/warproxy_new:latest
     restart: always
     ports:
       - 1080:1080
@@ -53,5 +53,6 @@ When you restart container, it will update your account info and re-generate con
 
 
 ## Thanks
+* [kingcc/warproxy](https://github.com/kingcc/warproxy) — upstream this repo was forked from
 * [105PM](https://github.com/105PM/docker-warproxy)
 * [by275 (docker-dpitunnel)](https://github.com/by275/docker-dpitunnel)

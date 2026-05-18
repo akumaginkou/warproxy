@@ -38,8 +38,8 @@ RUN chmod a+x \
 
 FROM base As publisher
 
-LABEL maintainer="kingcc"
-LABEL org.opencontainers.image.source=https://github.com/kingcc/warproxy
+LABEL maintainer="akumaginkou"
+LABEL org.opencontainers.image.source=https://github.com/akumaginkou/warproxy_new
 
 COPY --from=collector /bar/ /
 
