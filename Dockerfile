@@ -1,5 +1,5 @@
-ARG ALPINE_VER=3.19
-ARG GOLANG_VER=1.22
+ARG ALPINE_VER=3.20
+ARG GOLANG_VER=tip
 
 #--------------#
 
@@ -12,16 +12,19 @@ RUN go install github.com/pufferffish/wireproxy/cmd/wireproxy@latest
 
 #--------------#
 
-FROM base AS wgcf-builder
+FROM golang:${GOLANG_VER}-alpine${ALPINE_VER} AS wgcf-builder
 
-RUN curl -fsSL https://git.io/wgcf.sh | bash
+RUN apk add --no-cache git && \
+    git clone https://github.com/ViRb3/wgcf.git /tmp/wgcf && \
+    cd /tmp/wgcf && \
+    go build -o /go/bin/wgcf .
 
 #--------------#
 
 FROM base AS collector
 
 COPY --from=wireproxy-builder /go/bin/wireproxy /bar/usr/local/bin/wireproxy
-COPY --from=wgcf-builder /usr/local/bin/wgcf /bar/usr/local/bin/wgcf
+COPY --from=wgcf-builder /go/bin/wgcf /bar/usr/local/bin/wgcf
 
 COPY root/ /bar/
 
