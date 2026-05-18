@@ -1,5 +1,5 @@
-ARG ALPINE_VER=3.20
-ARG GOLANG_VER=tip
+ARG ALPINE_VER=3.23
+ARG GOLANG_VER=1.26
 
 #--------------#
 
@@ -8,7 +8,7 @@ FROM ghcr.io/linuxserver/baseimage-alpine:${ALPINE_VER} AS base
 #--------------#
 
 FROM golang:${GOLANG_VER}-alpine${ALPINE_VER} AS wireproxy-builder
-RUN go install github.com/pufferffish/wireproxy/cmd/wireproxy@latest
+RUN go install github.com/windtf/wireproxy/cmd/wireproxy@latest
 
 #--------------#
 
