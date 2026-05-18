@@ -36,12 +36,12 @@ services:
 | ENV  | Description  | Default  |
 |---|---|---|
 | ```PUID``` / ```PGID```  | uid and gid for running an app  | ```911``` / ```911```  |
-| ```TZ```  | timezone  | ```Asia/Shanghai```  |
+| ```TZ```  | timezone  | ```UTC```  |
 | ```SOCKS5_PORT```  | to run socks5 proxy in a different port  | ```1080``` |
 | ```USERNAME```  | username of socks5 auth  | None |
 | ```PASSWORD```  | password of socks5 auth  | None |
 | ```HTTP_PORT```  | to run http proxy in a different port  | None |
-| ```ENDPOINT```  | endpoint of cloudflare | ```engage.cloudflareclient.com``` |
+| ```ENDPOINT```  | endpoint of cloudflare (port optional; defaults to ``:2408``) | ```engage.cloudflareclient.com:2408``` |
 | ```DNS```  | remote dns options  | ```1.1.1.1``` |
 | ```WARP_PLUS```  | set ```true``` to enable auto WARP+ quota script  | ```false``` |
 | ```VERBOSE```  | show verbose level logs   | ```false```  |
