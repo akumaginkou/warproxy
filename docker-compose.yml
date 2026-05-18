@@ -1,0 +1,18 @@
+services:
+  warproxy.server:
+    image: ghcr.io/kingcc/warproxy:latest
+    restart: always
+    environment:
+      - WARP_PLUS=true
+      - ENDPOINT=162.159.192.1
+      - HTTP_PORT=1081
+    networks:
+      - warproxy.network
+    ports:
+      - 127.0.0.1:1080:1080
+      - 127.0.0.1:1081:1081
+
+networks:
+  warproxy.network:
+    external: true
+    name: warproxy.network

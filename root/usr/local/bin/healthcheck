@@ -1,0 +1,12 @@
+#!/bin/bash
+# from https://github.com/by275/docker-dpitunnel/blob/main/root/usr/local/bin/healthcheck
+
+TEST_URL="https://google.com"
+
+if [[ -n "${USERNAME:-}" ]] && [[ -n "${PASSWORD:-}" ]]; then
+    /usr/bin/curl --silent --fail -o /dev/null --proxy "socks5://${USERNAME}:${PASSWORD}@127.0.0.1:${SOCKS5_PORT}" "${TEST_URL}" || exit 1
+else
+    /usr/bin/curl --silent --fail -o /dev/null --proxy "socks5://127.0.0.1:${SOCKS5_PORT}" "${TEST_URL}" || exit 1
+fi
+
+exit 0
