@@ -16,7 +16,7 @@ Includes:
 ```sh
 docker run --name warproxy \
   -p 1080:1080 \
-  -d ghcr.io/akumaginkou/warproxy_new:latest
+  -d ghcr.io/akumaginkou/warproxy:latest
 ```
 
 or `docker-compose`:
@@ -24,7 +24,7 @@ or `docker-compose`:
 ```yaml
 services:
   warproxy:
-    image: ghcr.io/akumaginkou/warproxy_new:latest
+    image: ghcr.io/akumaginkou/warproxy:latest
     restart: always
     ports:
       - 1080:1080

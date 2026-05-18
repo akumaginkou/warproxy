@@ -1,6 +1,6 @@
 services:
   warproxy.server:
-    image: ghcr.io/akumaginkou/warproxy_new:latest
+    image: ghcr.io/akumaginkou/warproxy:latest
     restart: always
     environment:
       - WARP_PLUS=true
