@@ -43,7 +43,7 @@ services:
 | ```HTTP_PORT```  | to run http proxy in a different port  | None |
 | ```ENDPOINT```  | endpoint of cloudflare (port optional; defaults to ``:2408``) | ```engage.cloudflareclient.com:2408``` |
 | ```DNS```  | remote dns options  | ```1.1.1.1``` |
-| ```WARP_PLUS```  | set ```true``` to enable auto WARP+ quota script  | ```false``` |
+| ```WARP_PLUS```  | **No longer functional.** Cloudflare retired the WARP+ referral program on 2024-11-01 (API error 1070). Kept for backward compatibility; do not enable.  | ```false``` |
 | ```VERBOSE```  | show verbose level logs   | ```false```  |
 
 ### To change license key

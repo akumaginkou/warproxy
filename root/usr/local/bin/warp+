@@ -155,6 +155,16 @@ if __name__ == "__main__":
     if args.verbose:
         logger.setLevel(logging.INFO)
     if args.commands == "run":
-        getquota()
+        # Cloudflare retired the WARP+ referral program on 2024-11-01.
+        # The /reg endpoint now responds with error code 1070
+        # ("We are no longer accepting referral codes"), so getquota()
+        # can only ever loop and fail. Exit non-zero so s6 reports the
+        # broken state instead of spinning forever.
+        sys.stderr.write(
+            "warp+: Cloudflare retired the WARP+ referral program on "
+            "2024-11-01. Set WARP_PLUS=false (the default) to silence "
+            "this service.\n"
+        )
+        sys.exit(1)
     elif args.commands == "update":
         updatekey()

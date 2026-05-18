@@ -3,7 +3,6 @@ services:
     image: ghcr.io/akumaginkou/warproxy:latest
     restart: always
     environment:
-      - WARP_PLUS=true
       - ENDPOINT=162.159.192.1
       - HTTP_PORT=1081
     networks:
